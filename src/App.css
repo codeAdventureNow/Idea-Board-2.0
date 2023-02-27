@@ -63,7 +63,7 @@ button:hover {
   flex-direction: column;
   background: #ffff99;
   width: 275px;
-  heigth: 300px;
+
   margin: 1rem;
 }
 
@@ -115,6 +115,8 @@ textarea {
 
 .tileMessage {
   margin: 20px 20px;
+  inline-size: 250px;
+  overflow-wrap: break-word;
 }
 
 .delete-button {
