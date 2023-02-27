@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { useState } from 'react';
 import AddIdea from './AddIdea';
+import IdeaList from './IdeaList';
 
 export default function App() {
   const [ideas, setIdeas] = useState([
@@ -15,14 +16,30 @@ export default function App() {
   let nextId = 1;
 
   function handleAddIdea() {
-    return [
+    setIdeas([
       ...ideas,
       {
         id: nextId++,
         text: '',
         message: '',
       },
-    ];
+    ]);
+  }
+
+  //not sure what to put as the second operand after === where ideas.id is located
+  function handleChangeIdea() {
+    return ideas.map((i) => {
+      if (i.id === ideas.id) {
+        return ideas;
+      } else {
+        return i;
+      }
+    });
+  }
+
+  //not sure what to put as the second operand after === where ideas.id is located
+  function handleDeleteIdea() {
+    return ideas.filter((i) => i.id !== ideas.id);
   }
 
   return (
@@ -32,8 +49,12 @@ export default function App() {
       </div>
 
       <AddIdea onAddIdea={handleAddIdea} />
-      <IdeaList />
-      <div className='cardList'>
+      <IdeaList
+        ideas={ideas}
+        onChangeIdea={handleChangeIdea}
+        onDeleteIdea={handleDeleteIdea}
+      />
+      {/* <div className='cardList'>
         <div className='card'>
           <div>
             <input className='tileTitle' type='text' />
@@ -48,7 +69,7 @@ export default function App() {
           </div>
           <input className='tileBody' type='text' />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
