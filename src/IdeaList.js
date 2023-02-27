@@ -9,11 +9,14 @@ export default function IdeaList({ ideas, onChangeIdea, onDeleteIdea }) {
 }
 
 function Idea({ idea, onChange, onDelete }) {
-  const [isEditing, setIsEditing] = useState(false);
-  let ideaContent;
+  const [isEditingTitle, setIsEditingTitle] = useState(false);
+  const [isEditingMessage, setIsEditingMessage] = useState(false);
 
-  if (isEditing) {
-    ideaContent = (
+  let ideaTitle;
+  let messageContent;
+
+  if (isEditingTitle) {
+    ideaTitle = (
       <div className='card'>
         <input
           value={idea.title}
@@ -24,21 +27,45 @@ function Idea({ idea, onChange, onDelete }) {
             });
           }}
         />
-        <button onClick={() => setIsEditing(false)}>Save</button>
+        <button onClick={() => setIsEditingTitle(false)}>Save Title</button>
       </div>
     );
   } else {
-    ideaContent = (
+    ideaTitle = (
       <div className='card'>
         <p className='title'>{idea.title}</p>
-        <button onClick={() => setIsEditing(true)}>Title</button>
+        <button onClick={() => setIsEditingTitle(true)}>Edit Title</button>
+      </div>
+    );
+  }
+
+  if (isEditingMessage) {
+    messageContent = (
+      <div className='card'>
+        <textarea
+          value={idea.message}
+          onChange={(e) => {
+            onChange({
+              ...idea,
+              message: e.target.value,
+            });
+          }}
+        ></textarea>
+        <button onClick={() => setIsEditingMessage(false)}>Save Message</button>
+      </div>
+    );
+  } else {
+    messageContent = (
+      <div className='card'>
+        <p>{idea.message}</p>
+        <button onClick={() => setIsEditingMessage(true)}>Edit Message</button>
       </div>
     );
   }
   return (
     <div className='card'>
-      {ideaContent}
-      <textarea></textarea>
+      {ideaTitle}
+      {messageContent}
       <button onClick={() => onDelete(idea.id)}>Delete</button>
     </div>
   );
