@@ -5,16 +5,10 @@ import AddIdea from './AddIdea';
 import IdeaList from './IdeaList';
 
 export default function App() {
-  const [ideas, setIdeas] = useState([
-    {
-      id: 0,
-      title: '',
-      message: '',
-    },
-  ]);
+  const [ideas, setIdeas] = useState([]);
 
   function handleAddIdea() {
-    let nextId = Math.floor(Math.random() * 100);
+    let nextId = Math.floor(Math.random() * 1000);
     setIdeas([
       ...ideas,
       {
