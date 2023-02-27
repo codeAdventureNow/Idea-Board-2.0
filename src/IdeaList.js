@@ -17,7 +17,7 @@ function Idea({ idea, onChange, onDelete }) {
 
   if (isEditingTitle) {
     ideaTitle = (
-      <div className='card'>
+      <div className='tileTop'>
         <input
           value={idea.title}
           onChange={(e) => {
@@ -27,21 +27,25 @@ function Idea({ idea, onChange, onDelete }) {
             });
           }}
         />
-        <button onClick={() => setIsEditingTitle(false)}>Save Title</button>
+        <button className='tileButton' onClick={() => setIsEditingTitle(false)}>
+          Save Title
+        </button>
       </div>
     );
   } else {
     ideaTitle = (
-      <div className='card'>
+      <div className='tileTop'>
         <p className='title'>{idea.title}</p>
-        <button onClick={() => setIsEditingTitle(true)}>Edit Title</button>
+        <button className='tileButton' onClick={() => setIsEditingTitle(true)}>
+          Edit Title
+        </button>
       </div>
     );
   }
 
   if (isEditingMessage) {
     messageContent = (
-      <div className='card'>
+      <div className='tileTop'>
         <textarea
           value={idea.message}
           onChange={(e) => {
@@ -51,14 +55,24 @@ function Idea({ idea, onChange, onDelete }) {
             });
           }}
         ></textarea>
-        <button onClick={() => setIsEditingMessage(false)}>Save Message</button>
+        <button
+          className='tileButton'
+          onClick={() => setIsEditingMessage(false)}
+        >
+          Save Message
+        </button>
       </div>
     );
   } else {
     messageContent = (
-      <div className='card'>
+      <div className='tileTop'>
         <p>{idea.message}</p>
-        <button onClick={() => setIsEditingMessage(true)}>Edit Message</button>
+        <button
+          className='tileButton'
+          onClick={() => setIsEditingMessage(true)}
+        >
+          Edit Message
+        </button>
       </div>
     );
   }
@@ -66,7 +80,9 @@ function Idea({ idea, onChange, onDelete }) {
     <div className='card'>
       {ideaTitle}
       {messageContent}
-      <button onClick={() => onDelete(idea.id)}>Delete</button>
+      <button className='tileButton' onClick={() => onDelete(idea.id)}>
+        Delete
+      </button>
     </div>
   );
 }

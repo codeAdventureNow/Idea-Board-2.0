@@ -19,7 +19,6 @@ export default function App() {
     ]);
   }
 
-  //not sure what to put as the second operand after === where ideas.id is located
   function handleChangeIdea(idea) {
     setIdeas(
       ideas.map((i) => {
@@ -32,7 +31,6 @@ export default function App() {
     );
   }
 
-  //not sure what to put as the second operand after === where ideas.id is located
   function handleDeleteIdea(idea) {
     setIdeas(ideas.filter((i) => i.id !== idea));
   }
