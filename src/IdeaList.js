@@ -1,11 +1,27 @@
 import { useState } from 'react';
 
+// export default function IdeaList({ ideas, onChangeIdea, onDeleteIdea }) {
+//   return ideas.map((idea) => (
+//     <div className='cardList' key={idea.id}>
+//       <Idea idea={idea} onChange={onChangeIdea} onDelete={onDeleteIdea} />
+
+//     </div>
+//   ));
+// }
+
 export default function IdeaList({ ideas, onChangeIdea, onDeleteIdea }) {
-  return ideas.map((idea) => (
-    <div className='cardList' key={idea.id}>
-      <Idea idea={idea} onChange={onChangeIdea} onDelete={onDeleteIdea} />
+  return (
+    <div className='cardList'>
+      {ideas.map((idea) => (
+        <Idea
+          key={idea.id}
+          idea={idea}
+          onChange={onChangeIdea}
+          onDelete={onDeleteIdea}
+        />
+      ))}
     </div>
-  ));
+  );
 }
 
 function Idea({ idea, onChange, onDelete }) {
@@ -27,7 +43,10 @@ function Idea({ idea, onChange, onDelete }) {
             });
           }}
         />
-        <button className='tileButton' onClick={() => setIsEditingTitle(false)}>
+        <button
+          className='tileButton save-button'
+          onClick={() => setIsEditingTitle(false)}
+        >
           Save Title
         </button>
       </div>
@@ -66,7 +85,7 @@ function Idea({ idea, onChange, onDelete }) {
   } else {
     messageContent = (
       <div className='tileTop'>
-        <p>{idea.message}</p>
+        <p className='tileMessage'>{idea.message}</p>
         <button
           className='tileButton'
           onClick={() => setIsEditingMessage(true)}
@@ -78,11 +97,15 @@ function Idea({ idea, onChange, onDelete }) {
   }
   return (
     <div className='card'>
-      {ideaTitle}
-      {messageContent}
-      <button className='tileButton' onClick={() => onDelete(idea.id)}>
-        Delete
-      </button>
+      <div className='delete-section'>
+        <button className='delete-button' onClick={() => onDelete(idea.id)}>
+          x
+        </button>
+      </div>
+      <div className='tileBottom'>
+        {ideaTitle}
+        {messageContent}
+      </div>
     </div>
   );
 }
