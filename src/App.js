@@ -13,33 +13,34 @@ export default function App() {
     },
   ]);
 
-  let nextId = 1;
-
   function handleAddIdea() {
+    let nextId = Math.floor(Math.random() * 100);
     setIdeas([
       ...ideas,
       {
         id: nextId++,
-        text: '',
+        title: '',
         message: '',
       },
     ]);
   }
 
   //not sure what to put as the second operand after === where ideas.id is located
-  function handleChangeIdea() {
-    return ideas.map((i) => {
-      if (i.id === ideas.id) {
-        return ideas;
-      } else {
-        return i;
-      }
-    });
+  function handleChangeIdea(idea) {
+    setIdeas(
+      ideas.map((i) => {
+        if (i.id === idea.id) {
+          return idea;
+        } else {
+          return i;
+        }
+      })
+    );
   }
 
   //not sure what to put as the second operand after === where ideas.id is located
-  function handleDeleteIdea() {
-    return ideas.filter((i) => i.id !== ideas.id);
+  function handleDeleteIdea(idea) {
+    setIdeas(ideas.filter((i) => i.id !== idea));
   }
 
   return (

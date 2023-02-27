@@ -30,14 +30,15 @@ function Idea({ idea, onChange, onDelete }) {
   } else {
     ideaContent = (
       <div className='card'>
-        {idea.text}
-        <button onClick={() => setIsEditing(true)}>Edit</button>
+        <p className='title'>{idea.title}</p>
+        <button onClick={() => setIsEditing(true)}>Title</button>
       </div>
     );
   }
   return (
     <div className='card'>
       {ideaContent}
+      <textarea></textarea>
       <button onClick={() => onDelete(idea.id)}>Delete</button>
     </div>
   );
