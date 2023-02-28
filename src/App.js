@@ -6,6 +6,13 @@ import IdeaList from './IdeaList';
 
 export default function App() {
   const [ideas, setIdeas] = useState([]);
+  const [sortState, setSortState] = useState('none');
+
+  const sortMethods = {
+    none: { method: (a, b) => null },
+    ascending: { method: (a, b) => (a > b ? 1 : -1) },
+    descending: { method: (a, b) => (a > b ? -1 : 1) },
+  };
 
   function handleAddIdea() {
     let nextId = Math.floor(Math.random() * 1000);
@@ -42,7 +49,22 @@ export default function App() {
       </div>
 
       <AddIdea onAddIdea={handleAddIdea} />
+      <div>
+        <p>Sort Alphabetically</p>
+        <select
+          defaultValue={'DEFAULT'}
+          onChange={(e) => setSortState(e.target.value)}
+        >
+          <option value='DEFAULT' disabled>
+            None
+          </option>
+          <option value='ascending'>Ascending</option>
+          <option value='descending'>Descending</option>
+        </select>
+      </div>
       <IdeaList
+        sortMethods={sortMethods}
+        sortState={sortState}
         ideas={ideas}
         onChangeIdea={handleChangeIdea}
         onDeleteIdea={handleDeleteIdea}

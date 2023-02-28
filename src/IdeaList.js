@@ -1,10 +1,17 @@
 import { useState } from 'react';
 import { useRef, useEffect } from 'react';
 
-export default function IdeaList({ ideas, onChangeIdea, onDeleteIdea }) {
+export default function IdeaList({
+  sortState,
+  sortMethods,
+  ideas,
+  onChangeIdea,
+  onDeleteIdea,
+}) {
+  console.log(ideas);
   return (
     <div className='cardList'>
-      {ideas.map((idea) => (
+      {ideas.sort(sortMethods[sortState].method).map((idea) => (
         <Idea
           key={idea.id}
           idea={idea}
