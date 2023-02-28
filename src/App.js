@@ -47,22 +47,6 @@ export default function App() {
         onChangeIdea={handleChangeIdea}
         onDeleteIdea={handleDeleteIdea}
       />
-      {/* <div className='cardList'>
-        <div className='card'>
-          <div>
-            <input className='tileTitle' type='text' />
-            <button className='tileButton'>x</button>
-          </div>
-          <input className='tileBody' type='text' />
-        </div>
-        <div className='card'>
-          <div>
-            <input className='tileTitle' type='text' />
-            <button className='tileButton'>x</button>
-          </div>
-          <input className='tileBody' type='text' />
-        </div>
-      </div> */}
     </div>
   );
 }

@@ -1,13 +1,5 @@
 import { useState } from 'react';
-
-// export default function IdeaList({ ideas, onChangeIdea, onDeleteIdea }) {
-//   return ideas.map((idea) => (
-//     <div className='cardList' key={idea.id}>
-//       <Idea idea={idea} onChange={onChangeIdea} onDelete={onDeleteIdea} />
-
-//     </div>
-//   ));
-// }
+import { useRef, useEffect } from 'react';
 
 export default function IdeaList({ ideas, onChangeIdea, onDeleteIdea }) {
   return (
@@ -25,16 +17,24 @@ export default function IdeaList({ ideas, onChangeIdea, onDeleteIdea }) {
 }
 
 function Idea({ idea, onChange, onDelete }) {
-  const [isEditingTitle, setIsEditingTitle] = useState(false);
   const [isEditingMessage, setIsEditingMessage] = useState(false);
+  const [isEditingTitle, setIsEditingTitle] = useState(true);
 
   let ideaTitle;
   let messageContent;
+
+  const inputReference = useRef(null);
+
+  useEffect(() => {
+    inputReference.current.focus();
+  }, []);
 
   if (isEditingTitle) {
     ideaTitle = (
       <div className='tileTop'>
         <input
+          type='text'
+          ref={inputReference}
           value={idea.title}
           onChange={(e) => {
             onChange({
