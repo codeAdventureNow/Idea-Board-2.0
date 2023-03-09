@@ -133,3 +133,9 @@ textarea {
   justify-content: flex-end;
   margin-right: 15px;
 }
+
+.drop-down {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}

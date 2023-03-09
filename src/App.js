@@ -6,6 +6,24 @@ import IdeaList from './IdeaList';
 
 export default function App() {
   const [ideas, setIdeas] = useState([]);
+  const [alphabeticalToggle, setAlphabeticalToggle] = useState(false);
+  console.log(ideas);
+
+  let alphabeticalSorting = [...ideas].sort(function (a, b) {
+    const nameA = a.title.toUpperCase();
+    const nameB = b.title.toUpperCase();
+
+    if (nameA < nameB) {
+      return -1;
+    }
+
+    if (nameA > nameB) {
+      return 1;
+    }
+    return 0;
+  });
+
+  // console.log(alphabeticalSorting);
 
   function handleAddIdea() {
     let nextId = Math.floor(Math.random() * 1000);
@@ -42,8 +60,20 @@ export default function App() {
       </div>
 
       <AddIdea onAddIdea={handleAddIdea} />
+      <label className='drop-down'>
+        Alphabetical
+        <select
+          value={alphabeticalToggle}
+          onChange={(e) => setAlphabeticalToggle(e.target.value)}
+        >
+          <option disabled value='false'>
+            Unsorted
+          </option>
+          <option value='true'>Alphabetical</option>
+        </select>
+      </label>
       <IdeaList
-        ideas={ideas}
+        ideas={alphabeticalToggle ? alphabeticalSorting : ideas}
         onChangeIdea={handleChangeIdea}
         onDeleteIdea={handleDeleteIdea}
       />
