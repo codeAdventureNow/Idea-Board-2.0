@@ -6,12 +6,12 @@ import IdeaList from './IdeaList';
 
 export default function App() {
   const [ideas, setIdeas] = useState([]);
-  const [alphabeticalToggle, setAlphabeticalToggle] = useState();
+  const [ideaSort, setIdeaSort] = useState();
 
-  console.log(alphabeticalToggle);
+  console.log(ideaSort);
 
   useEffect(() => {
-    if (alphabeticalToggle === 'alpha') {
+    if (ideaSort === 'alpha') {
       const sortAlphabetic = () =>
         [...ideas].sort(function (a, b) {
           const nameA = a.title.toUpperCase();
@@ -27,7 +27,7 @@ export default function App() {
           return 0;
         });
       setIdeas(sortAlphabetic);
-    } else if (alphabeticalToggle === 'date') {
+    } else if (ideaSort === 'date') {
       const sortDate = () =>
         [...ideas].sort(function (a, b) {
           const dateA = a.date;
@@ -44,7 +44,7 @@ export default function App() {
         });
       setIdeas(sortDate);
     }
-  }, [alphabeticalToggle]);
+  }, [ideaSort]);
 
   function handleAddIdea() {
     let nextId = Math.floor(Math.random() * 1000);
@@ -83,11 +83,8 @@ export default function App() {
 
       <AddIdea onAddIdea={handleAddIdea} />
       <label className='drop-down'>
-        Alphabetical
-        <select
-          value={alphabeticalToggle}
-          onChange={(e) => setAlphabeticalToggle(e.target.value)}
-        >
+        Sort
+        <select value={ideaSort} onChange={(e) => setIdeaSort(e.target.value)}>
           <option value='date'>Created</option>
           <option value='alpha'>Alphabetical</option>
         </select>
