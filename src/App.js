@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import './App.css';
 import { useState } from 'react';
 import AddIdea from './AddIdea';
@@ -6,24 +6,45 @@ import IdeaList from './IdeaList';
 
 export default function App() {
   const [ideas, setIdeas] = useState([]);
-  const [alphabeticalToggle, setAlphabeticalToggle] = useState(false);
-  console.log(ideas);
+  const [alphabeticalToggle, setAlphabeticalToggle] = useState();
 
-  let alphabeticalSorting = [...ideas].sort(function (a, b) {
-    const nameA = a.title.toUpperCase();
-    const nameB = b.title.toUpperCase();
+  console.log(alphabeticalToggle);
 
-    if (nameA < nameB) {
-      return -1;
+  useEffect(() => {
+    if (alphabeticalToggle === 'alpha') {
+      const sortAlphabetic = () =>
+        [...ideas].sort(function (a, b) {
+          const nameA = a.title.toUpperCase();
+          const nameB = b.title.toUpperCase();
+
+          if (nameA < nameB) {
+            return -1;
+          }
+
+          if (nameA > nameB) {
+            return 1;
+          }
+          return 0;
+        });
+      setIdeas(sortAlphabetic);
+    } else if (alphabeticalToggle === 'date') {
+      const sortDate = () =>
+        [...ideas].sort(function (a, b) {
+          const dateA = a.date;
+          const dateB = b.date;
+
+          if (dateA < dateB) {
+            return -1;
+          }
+
+          if (dateA > dateB) {
+            return 1;
+          }
+          return 0;
+        });
+      setIdeas(sortDate);
     }
-
-    if (nameA > nameB) {
-      return 1;
-    }
-    return 0;
-  });
-
-  // console.log(alphabeticalSorting);
+  }, [alphabeticalToggle]);
 
   function handleAddIdea() {
     let nextId = Math.floor(Math.random() * 1000);
@@ -33,6 +54,7 @@ export default function App() {
         id: nextId++,
         title: '',
         message: '',
+        date: Date.now(),
       },
     ]);
   }
@@ -66,14 +88,12 @@ export default function App() {
           value={alphabeticalToggle}
           onChange={(e) => setAlphabeticalToggle(e.target.value)}
         >
-          <option disabled value='false'>
-            Unsorted
-          </option>
-          <option value='true'>Alphabetical</option>
+          <option value='date'>Created</option>
+          <option value='alpha'>Alphabetical</option>
         </select>
       </label>
       <IdeaList
-        ideas={alphabeticalToggle ? alphabeticalSorting : ideas}
+        ideas={ideas}
         onChangeIdea={handleChangeIdea}
         onDeleteIdea={handleDeleteIdea}
       />
