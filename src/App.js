@@ -7,7 +7,22 @@ import IdeaList from './IdeaList';
 
 export default function App() {
   const [ideas, setIdeas] = useState([]);
-  const [ideaSort, setIdeaSort] = useState();
+  const [ideaSort, setIdeaSort] = useState('date');
+
+  useEffect(() => {
+    const data = localStorage.getItem('ideas') || [];
+    if (data) {
+      setIdeas(JSON.parse(data));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (ideas.length > 0) {
+
+      window.localStorage.setItem('ideas', JSON.stringify(ideas));
+    }
+  }, [ideas]);
+
 
   console.log(ideaSort);
   console.log(ideas);

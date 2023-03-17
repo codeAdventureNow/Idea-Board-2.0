@@ -25,9 +25,31 @@ function Idea({ idea, onChange, onDelete }) {
 
   const inputReference = useRef(null);
 
-  useEffect(() => {
-    inputReference.current.focus();
-  }, []);
+  // useEffect(() => {
+  //   inputReference.current.focus();
+  // }, []);
+
+  // useEffect(() => {
+  //   const data = localStorage.getItem('isEditingMessage');
+  //   if (data) {
+  //     setIsEditingMessage(JSON.parse(data));
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   localStorage.setItem('isEditingMessage', JSON.stringify(isEditingMessage));
+  // });
+
+  // useEffect(() => {
+  //   const data = localStorage.getItem('isEditingTitle');
+  //   if (data) {
+  //     setIsEditingTitle(JSON.parse(data));
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   localStorage.setItem('isEditingTitle', JSON.stringify(isEditingTitle));
+  // });
 
   if (isEditingTitle) {
     let newDate = Date(Date.now()).toString();
