@@ -86,13 +86,17 @@ export default function App() {
       </div>
 
       <AddIdea onAddIdea={handleAddIdea} />
+      <div > 
+      
       <label className='drop-down'>
-        {`Sort `}
+        <p div style={{ padding: 10 }}>Sort by</p>
         <select value={ideaSort} onChange={(e) => setIdeaSort(e.target.value)}>
-          <option value='date'>Created</option>
-          <option value='alpha'>Alphabetical</option>
+          <option value='date'>Date</option>
+          <option value='alpha'>A-Z</option>
         </select>
       </label>
+      </div>
+     
       <IdeaList
         ideas={ideas}
         onChangeIdea={handleChangeIdea}

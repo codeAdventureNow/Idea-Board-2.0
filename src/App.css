@@ -136,8 +136,10 @@ textarea {
 
 .drop-down {
   display: flex;
-  justify-content: center;
   flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  margin-left: 20px;
 }
 
 .timeStamp {
