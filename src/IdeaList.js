@@ -54,9 +54,11 @@ function Idea({ idea, onChange, onDelete }) {
       </div>
     );
   } else {
+    
     ideaTitle = (
       <div className='tileTop'>
-        <p className='title'>{idea.title}</p>
+         <p className='timeStamp'>{idea.date}</p>
+         <p>{idea.title}</p>
 
         <button className='tileButton' onClick={() => setIsEditingTitle(true)}>
           Edit Title
@@ -66,6 +68,7 @@ function Idea({ idea, onChange, onDelete }) {
   }
 
   if (isEditingMessage) {
+    let newDate = Date(Date.now()).toString();
     messageContent = (
       <div className='tileTop'>
         <textarea
@@ -75,6 +78,7 @@ function Idea({ idea, onChange, onDelete }) {
             onChange({
               ...idea,
               message: e.target.value,
+              date: newDate.substring(0, newDate.length - 29),
             });
           }}
         ></textarea>
@@ -107,7 +111,7 @@ function Idea({ idea, onChange, onDelete }) {
         </button>
       </div>
       <div className='tileBottom'>
-        <p className='timeStamp'>{idea.date}</p>
+       {/* <p className='timeStamp'>{idea.date}</p> */}
         {ideaTitle}
         {messageContent}
       </div>
