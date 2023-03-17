@@ -72,7 +72,7 @@ function Idea({ idea, onChange, onDelete }) {
     messageContent = (
       <div className='tileTop'>
         <textarea
-          maxlength='140'
+          maxLength='140'
           value={idea.message}
           onChange={(e) => {
             onChange({

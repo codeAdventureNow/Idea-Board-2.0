@@ -58,7 +58,7 @@ export default function App() {
         title: '',
         message: '',
         date: newDate.substring(0, newDate.length - 29),
-        // date: Date(Date.now()).toString(),
+      
       },
     ]);
   }
@@ -89,7 +89,7 @@ export default function App() {
       <div > 
       
       <label className='drop-down'>
-        <p div style={{ padding: 10 }}>Sort by</p>
+        <p style={{ padding: 10 }}>Sort by</p>
         <select value={ideaSort} onChange={(e) => setIdeaSort(e.target.value)}>
           <option value='date'>Date</option>
           <option value='alpha'>A-Z</option>
