@@ -30,6 +30,7 @@ function Idea({ idea, onChange, onDelete }) {
   }, []);
 
   if (isEditingTitle) {
+    let newDate = Date(Date.now()).toString();
     ideaTitle = (
       <div className='tileTop'>
         <input
@@ -40,6 +41,7 @@ function Idea({ idea, onChange, onDelete }) {
             onChange({
               ...idea,
               title: e.target.value,
+              date: newDate.substring(0, newDate.length - 29),
             });
           }}
         />
@@ -55,6 +57,7 @@ function Idea({ idea, onChange, onDelete }) {
     ideaTitle = (
       <div className='tileTop'>
         <p className='title'>{idea.title}</p>
+
         <button className='tileButton' onClick={() => setIsEditingTitle(true)}>
           Edit Title
         </button>
@@ -104,6 +107,7 @@ function Idea({ idea, onChange, onDelete }) {
         </button>
       </div>
       <div className='tileBottom'>
+        <p className='timeStamp'>{idea.date}</p>
         {ideaTitle}
         {messageContent}
       </div>

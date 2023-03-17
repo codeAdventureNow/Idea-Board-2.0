@@ -1,4 +1,5 @@
 import React, { Component, useEffect } from 'react';
+
 import './App.css';
 import { useState } from 'react';
 import AddIdea from './AddIdea';
@@ -9,6 +10,7 @@ export default function App() {
   const [ideaSort, setIdeaSort] = useState();
 
   console.log(ideaSort);
+  console.log(ideas);
 
   useEffect(() => {
     if (ideaSort === 'alpha') {
@@ -48,13 +50,15 @@ export default function App() {
 
   function handleAddIdea() {
     let nextId = Math.floor(Math.random() * 1000);
+    let newDate = Date(Date.now()).toString();
     setIdeas([
       ...ideas,
       {
         id: nextId++,
         title: '',
         message: '',
-        date: Date.now(),
+        date: newDate.substring(0, newDate.length - 29),
+        // date: Date(Date.now()).toString(),
       },
     ]);
   }
@@ -83,7 +87,7 @@ export default function App() {
 
       <AddIdea onAddIdea={handleAddIdea} />
       <label className='drop-down'>
-        Sort
+        {`Sort `}
         <select value={ideaSort} onChange={(e) => setIdeaSort(e.target.value)}>
           <option value='date'>Created</option>
           <option value='alpha'>Alphabetical</option>
