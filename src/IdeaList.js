@@ -17,17 +17,29 @@ export default function IdeaList({ ideas, onChangeIdea, onDeleteIdea }) {
 }
 
 function Idea({ idea, onChange, onDelete }) {
-  const [isEditingMessage, setIsEditingMessage] = useState(false);
-  const [isEditingTitle, setIsEditingTitle] = useState(true);
+  const [isEditingMessage, setIsEditingMessage] = useState(() => {
+    return JSON.parse(localStorage.getItem('isEditingMessage')) || false;
+  });
+  const [isEditingTitle, setIsEditingTitle] = useState(() => {
+    return JSON.parse(localStorage.getItem('isEditingTitle')) || true;
+  });
 
   let ideaTitle;
   let messageContent;
 
   const inputReference = useRef(null);
 
-  // useEffect(() => {
-  //   inputReference.current.focus();
-  // }, []);
+  useEffect(() => {
+    inputReference.current.focus();
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('isEditingMessage', JSON.stringify(isEditingMessage));
+  });
+
+  useEffect(() => {
+    localStorage.setItem('isEditingTitle', JSON.stringify(isEditingTitle));
+  });
 
   if (isEditingTitle) {
     let newDate = Date(Date.now()).toString();
@@ -110,7 +122,6 @@ function Idea({ idea, onChange, onDelete }) {
         </button>
       </div>
       <div className='tileBottom'>
-        {/* <p className='timeStamp'>{idea.date}</p> */}
         {ideaTitle}
         {messageContent}
       </div>
