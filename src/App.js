@@ -6,23 +6,20 @@ import AddIdea from './AddIdea';
 import IdeaList from './IdeaList';
 
 export default function App() {
-  const [ideas, setIdeas] = useState([]);
-  const [ideaSort, setIdeaSort] = useState('date');
+  const [ideas, setIdeas] = useState(() => {
+    return JSON.parse(localStorage.getItem('ideas')) || [];
+  });
+  const [ideaSort, setIdeaSort] = useState(() => {
+    return JSON.parse(localStorage.getItem('ideaSort'));
+  });
 
   useEffect(() => {
-    const data = localStorage.getItem('ideas') || [];
-    if (data) {
-      setIdeas(JSON.parse(data));
-    }
-  }, []);
+    localStorage.setItem('ideas', JSON.stringify(ideas));
+  });
 
   useEffect(() => {
-    if (ideas.length > 0) {
-
-      window.localStorage.setItem('ideas', JSON.stringify(ideas));
-    }
-  }, [ideas]);
-
+    localStorage.setItem('ideaSort', JSON.stringify(ideaSort));
+  });
 
   console.log(ideaSort);
   console.log(ideas);
@@ -73,7 +70,6 @@ export default function App() {
         title: '',
         message: '',
         date: newDate.substring(0, newDate.length - 29),
-      
       },
     ]);
   }
@@ -101,17 +97,19 @@ export default function App() {
       </div>
 
       <AddIdea onAddIdea={handleAddIdea} />
-      <div > 
-      
-      <label className='drop-down'>
-        <p style={{ padding: 10 }}>Sort by</p>
-        <select value={ideaSort} onChange={(e) => setIdeaSort(e.target.value)}>
-          <option value='date'>Date</option>
-          <option value='alpha'>A-Z</option>
-        </select>
-      </label>
+      <div>
+        <label className='drop-down'>
+          <p style={{ padding: 10 }}>Sort by</p>
+          <select
+            value={ideaSort}
+            onChange={(e) => setIdeaSort(e.target.value)}
+          >
+            <option value='date'>Date</option>
+            <option value='alpha'>A-Z</option>
+          </select>
+        </label>
       </div>
-     
+
       <IdeaList
         ideas={ideas}
         onChangeIdea={handleChangeIdea}
