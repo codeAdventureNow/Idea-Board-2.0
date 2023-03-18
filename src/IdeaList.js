@@ -29,28 +29,6 @@ function Idea({ idea, onChange, onDelete }) {
   //   inputReference.current.focus();
   // }, []);
 
-  // useEffect(() => {
-  //   const data = localStorage.getItem('isEditingMessage');
-  //   if (data) {
-  //     setIsEditingMessage(JSON.parse(data));
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   localStorage.setItem('isEditingMessage', JSON.stringify(isEditingMessage));
-  // });
-
-  // useEffect(() => {
-  //   const data = localStorage.getItem('isEditingTitle');
-  //   if (data) {
-  //     setIsEditingTitle(JSON.parse(data));
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   localStorage.setItem('isEditingTitle', JSON.stringify(isEditingTitle));
-  // });
-
   if (isEditingTitle) {
     let newDate = Date(Date.now()).toString();
     ideaTitle = (
@@ -76,11 +54,10 @@ function Idea({ idea, onChange, onDelete }) {
       </div>
     );
   } else {
-    
     ideaTitle = (
       <div className='tileTop'>
-         <p className='timeStamp'>{idea.date}</p>
-         <p>{idea.title}</p>
+        <p className='timeStamp'>{idea.date}</p>
+        <p>{idea.title}</p>
 
         <button className='tileButton' onClick={() => setIsEditingTitle(true)}>
           Edit Title
@@ -133,7 +110,7 @@ function Idea({ idea, onChange, onDelete }) {
         </button>
       </div>
       <div className='tileBottom'>
-       {/* <p className='timeStamp'>{idea.date}</p> */}
+        {/* <p className='timeStamp'>{idea.date}</p> */}
         {ideaTitle}
         {messageContent}
       </div>

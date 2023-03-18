@@ -10,7 +10,7 @@ export default function App() {
     return JSON.parse(localStorage.getItem('ideas')) || [];
   });
   const [ideaSort, setIdeaSort] = useState(() => {
-    return JSON.parse(localStorage.getItem('ideaSort'));
+    return JSON.parse(localStorage.getItem('ideaSort')) || 'date';
   });
 
   useEffect(() => {
