@@ -6,20 +6,12 @@ import AddIdea from './AddIdea';
 import IdeaList from './IdeaList';
 
 export default function App() {
-  const [ideas, setIdeas] = useState(() => {
-    return JSON.parse(localStorage.getItem('ideas')) || [];
-  });
-  const [ideaSort, setIdeaSort] = useState(() => {
-    return JSON.parse(localStorage.getItem('ideaSort')) || 'date';
-  });
+  const [ideas, setIdeas] = useState([]);
+  const [ideaSort, setIdeaSort] = useState('date');
 
-  useEffect(() => {
-    localStorage.setItem('ideas', JSON.stringify(ideas));
-  });
-
-  useEffect(() => {
-    localStorage.setItem('ideaSort', JSON.stringify(ideaSort));
-  });
+  // useEffect(() => {
+  //   localStorage.setItem('ideaSort', JSON.stringify(ideaSort));
+  // });
 
   console.log(ideaSort);
   console.log(ideas);

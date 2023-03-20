@@ -23,11 +23,15 @@ function Idea({ idea, onChange, onDelete }) {
   let ideaTitle;
   let messageContent;
 
+  // useEffect(() => {
+  //   localStorage.setItem('idea', JSON.stringify(idea));
+  // });
+
   const inputReference = useRef(null);
 
-  // useEffect(() => {
-  //   inputReference.current.focus();
-  // }, []);
+  useEffect(() => {
+    inputReference.current.focus();
+  }, []);
 
   if (isEditingTitle) {
     let newDate = Date(Date.now()).toString();
@@ -110,7 +114,6 @@ function Idea({ idea, onChange, onDelete }) {
         </button>
       </div>
       <div className='tileBottom'>
-        {/* <p className='timeStamp'>{idea.date}</p> */}
         {ideaTitle}
         {messageContent}
       </div>
