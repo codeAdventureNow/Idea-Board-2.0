@@ -19,6 +19,7 @@ export default function IdeaList({ ideas, onChangeIdea, onDeleteIdea }) {
 function Idea({ idea, onChange, onDelete }) {
   const [isEditingMessage, setIsEditingMessage] = useState(false);
   const [isEditingTitle, setIsEditingTitle] = useState(true);
+  const [characterCount, setCharacterCount] = useState(140);
 
   let ideaTitle;
   let messageContent;
@@ -71,6 +72,7 @@ function Idea({ idea, onChange, onDelete }) {
     messageContent = (
       <div className='tileTop'>
         <textarea
+          id='my-textarea'
           maxLength='140'
           value={idea.message}
           onChange={(e) => {
@@ -79,8 +81,17 @@ function Idea({ idea, onChange, onDelete }) {
               message: e.target.value,
               date: newDate.substring(0, newDate.length - 29),
             });
+            setCharacterCount(140 - e.target.value.length);
           }}
         ></textarea>
+        <p id='my-textarea-remaining-chars'>
+          {characterCount <= 20 ? (
+            <span className='alertCharacterCountdown'>{characterCount} </span>
+          ) : (
+            <span className='characterCountdownDefault'>{characterCount} </span>
+          )}
+          characters remaining
+        </p>
         <button
           className='tileButton'
           onClick={() => setIsEditingMessage(false)}
