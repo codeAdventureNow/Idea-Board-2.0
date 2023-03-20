@@ -9,13 +9,6 @@ export default function App() {
   const [ideas, setIdeas] = useState([]);
   const [ideaSort, setIdeaSort] = useState('date');
 
-  // useEffect(() => {
-  //   localStorage.setItem('ideaSort', JSON.stringify(ideaSort));
-  // });
-
-  console.log(ideaSort);
-  console.log(ideas);
-
   useEffect(() => {
     if (ideaSort === 'alpha') {
       const sortAlphabetic = () =>

@@ -23,10 +23,6 @@ function Idea({ idea, onChange, onDelete }) {
   let ideaTitle;
   let messageContent;
 
-  // useEffect(() => {
-  //   localStorage.setItem('idea', JSON.stringify(idea));
-  // });
-
   const inputReference = useRef(null);
 
   useEffect(() => {
