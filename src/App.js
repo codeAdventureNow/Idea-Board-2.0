@@ -13,6 +13,8 @@ export default function App() {
     return JSON.parse(localStorage.getItem('ideaSort')) || 'date';
   });
 
+  console.log(ideas);
+
   useEffect(() => {
     localStorage.setItem('ideas', JSON.stringify(ideas));
   });
@@ -21,8 +23,8 @@ export default function App() {
     localStorage.setItem('ideaSort', JSON.stringify(ideaSort));
   });
 
-  console.log(ideaSort);
-  console.log(ideas);
+  // console.log(ideaSort);
+  // console.log(ideas);
 
   useEffect(() => {
     if (ideaSort === 'alpha') {
