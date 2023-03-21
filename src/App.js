@@ -43,7 +43,7 @@ export default function App() {
         });
       setIdeas(sortDate);
     }
-  }, [ideaSort]);
+  }, [ideaSort, ideas]);
 
   function handleAddIdea() {
     let nextId = Math.floor(Math.random() * 1000);
