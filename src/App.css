@@ -147,3 +147,16 @@ textarea {
   padding: 10px;
   color: #2e458a;
 }
+
+#my-textarea-remaining-chars {
+  font-size: 12px;
+  color: #484848;
+}
+
+.alertCharacterCountdown {
+  color: red;
+}
+
+.characterCountdownDefault {
+  color: #484848;
+}
