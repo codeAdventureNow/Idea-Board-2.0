@@ -33,7 +33,7 @@ Another aspect I worked on was implementing sorting capabilities. Now, users can
 1.  npm install
 2.  npm run start
 3.  Go to [http://localhost:5173/
-](http://localhost:3000/)http://localhost:3000/
+](http://localhost:3000/)
 
 
 
