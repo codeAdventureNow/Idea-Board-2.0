@@ -9,8 +9,6 @@ At the start, I wanted to keep things simple, so I started with just displaying 
 Another aspect I worked on was implementing sorting capabilities. Now, users can sort their entries by date or alphabetically, making it easier to organize and find specific items.
 
 ## User Stories
-
-<br>
 &check;  The page must be fully responsive.
 </br>
 </br>
@@ -24,7 +22,6 @@ Another aspect I worked on was implementing sorting capabilities. Now, users can
 
 
 ## Lessons Learned
-<br>
 - How to sort alphabetically and by date.
 
 - Adding a character countdown.
