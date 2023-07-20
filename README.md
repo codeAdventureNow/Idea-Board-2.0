@@ -1,4 +1,4 @@
-# Idea Board 
+# Idea Board  :bulb:
 <br>
 This is a CRUD app created in React that allows users to create a board of ideas that can be deleted and sorted by date, or alphabetically. It is the take-home technical test for the FinTech company Clear Score.
 
@@ -17,11 +17,11 @@ Another aspect I worked on was implementing sorting capabilities. Now, users can
 
 
 ## Lessons Learned
-- Simplifying state management with a reducer
+- How to sort alphabetically and by date.
 
-- Using setInterval within a useEffect
+- Adding a character countdown.
 
-- Refactoring a reducer into TypeScript with an interface
+- Conditional rendering based on if the user is editing a card.
 
 ## Getting Started
 
