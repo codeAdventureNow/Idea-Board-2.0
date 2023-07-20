@@ -11,11 +11,14 @@ Another aspect I worked on was implementing sorting capabilities. Now, users can
 ## User Stories
 <br>
 &check;  The page must be fully responsive.
-
+</br>
+</br>
 &check;  Each idea tile should contain a title and description, which is editable, as well as created/updated time.
-
+</br>
+</br>
 &check;  New ideas should have the title field focused to prompt the user to begin typing.
-
+</br>
+</br>
 &check;  Add the ability to sort ideas by creation date or alphabetically.
 
 
