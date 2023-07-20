@@ -35,7 +35,7 @@ Another aspect I worked on was implementing sorting capabilities. Now, users can
 3.  Go to [http://localhost:3000/
 ](http://localhost:3000/)
 
-Check out the demo of [Idea Board]([https://pomodoro-ts-one.vercel.app/](https://idea-board-2-0.vercel.app/)https://idea-board-2-0.vercel.app/).
+Check out the demo of [Idea Board](https://idea-board-2-0.vercel.app/).
 
 
 
