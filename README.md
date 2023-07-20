@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Idea Board 
+<br>
+This is a CRUD app created in React that allows users to create a board of ideas that can be deleted and sorted by date, or alphabetically. It is the take-home technical test for the FinTech company Clear Score.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+At the start, I wanted to keep things simple, so I started with just displaying the title on each card. But as I got more comfortable with the project, I pushed myself to add more features. One of the things I came up with was a character countdown in the message body, which was a fun addition.
 
-## Available Scripts
+Another aspect I worked on was implementing sorting capabilities. Now, users can sort their entries by date or alphabetically, making it easier to organize and find specific items.
 
-In the project directory, you can run:
+## User Stories
+&check;  The page must be fully responsive.
 
-### `npm start`
+&check;  Each idea tile should contain a title and description, which is editable, as well as created/updated time.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+&check;  New ideas should have the title field focused to prompt the user to begin typing.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+&check;  Add the ability to sort ideas by creation date or alphabetically.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Lessons Learned
+- Simplifying state management with a reducer
 
-### `npm run build`
+- Using setInterval within a useEffect
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Refactoring a reducer into TypeScript with an interface
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1.  npm install
+2.  npm run start
+3.  Go to http://localhost:5173/
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
