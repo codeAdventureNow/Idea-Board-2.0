@@ -24,7 +24,6 @@ Another aspect I worked on was implementing sorting capabilities. Now, users can
 
 ## Lessons Learned
 <br>
-
 - How to sort alphabetically and by date.
 
 - Adding a character countdown.
